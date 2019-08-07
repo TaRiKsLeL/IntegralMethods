@@ -1,0 +1,20 @@
+C:\Users\Тарас\source\repos\C#\Simpson' Method\bin\Debug\Simpson' Method.exe.config
+C:\Users\Тарас\source\repos\C#\Simpson' Method\bin\Debug\Simpson' Method.exe
+C:\Users\Тарас\source\repos\C#\Simpson' Method\bin\Debug\Simpson' Method.pdb
+C:\Users\Тарас\source\repos\C#\Simpson' Method\obj\Debug\Simpson' Method.csprojAssemblyReference.cache
+C:\Users\Тарас\source\repos\C#\Simpson' Method\obj\Debug\Simpson__Method.Form1.resources
+C:\Users\Тарас\source\repos\C#\Simpson' Method\obj\Debug\Simpson__Method.Properties.Resources.resources
+C:\Users\Тарас\source\repos\C#\Simpson' Method\obj\Debug\Simpson' Method.csproj.GenerateResource.cache
+C:\Users\Тарас\source\repos\C#\Simpson' Method\obj\Debug\Simpson' Method.csproj.CoreCompileInputs.cache
+C:\Users\Тарас\source\repos\C#\Simpson' Method\obj\Debug\Simpson' Method.exe
+C:\Users\Тарас\source\repos\C#\Simpson' Method\obj\Debug\Simpson' Method.pdb
+F:\С#\Simpson' Method\bin\Debug\Simpson' Method.exe.config
+F:\С#\Simpson' Method\bin\Debug\Simpson' Method.exe
+F:\С#\Simpson' Method\bin\Debug\Simpson' Method.pdb
+F:\С#\Simpson' Method\obj\Debug\Simpson' Method.csprojAssemblyReference.cache
+F:\С#\Simpson' Method\obj\Debug\Simpson__Method.Form1.resources
+F:\С#\Simpson' Method\obj\Debug\Simpson__Method.Properties.Resources.resources
+F:\С#\Simpson' Method\obj\Debug\Simpson' Method.csproj.GenerateResource.cache
+F:\С#\Simpson' Method\obj\Debug\Simpson' Method.csproj.CoreCompileInputs.cache
+F:\С#\Simpson' Method\obj\Debug\Simpson' Method.exe
+F:\С#\Simpson' Method\obj\Debug\Simpson' Method.pdb
