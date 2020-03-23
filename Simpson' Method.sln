@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Simpson' Method", "Simpson' Method.csproj", "{E5FF82F8-CF64-4B10-9E46-37B0D892E186}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegralMethods", "IntegralMethods.csproj", "{E5FF82F8-CF64-4B10-9E46-37B0D892E186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

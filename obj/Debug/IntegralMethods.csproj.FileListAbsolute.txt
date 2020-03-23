@@ -1,0 +1,9 @@
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\bin\Debug\Simpson' Method.exe.config
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\bin\Debug\Simpson' Method.exe
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\bin\Debug\Simpson' Method.pdb
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\obj\Debug\IntegralMethods.csprojAssemblyReference.cache
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\obj\Debug\IntegralMethods.Form1.resources
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\obj\Debug\Simpson__Method.Properties.Resources.resources
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\obj\Debug\IntegralMethods.csproj.GenerateResource.cache
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\obj\Debug\Simpson' Method.exe
+C:\Users\user\source\repos\Illiash_ASD_3course_Labs\Simpson-Method-master\obj\Debug\Simpson' Method.pdb

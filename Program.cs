@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Simpson__Method
+namespace IntegralMethods
 {
     static class Program
     {

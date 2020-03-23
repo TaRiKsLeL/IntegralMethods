@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Simpson__Method.Properties {
+namespace IntegralMethods.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
