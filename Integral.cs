@@ -11,8 +11,10 @@ namespace IntegralMethods
 {
     abstract class Integral
     {
-        public double a, b, h;
-        public int n, funcType;
+        protected double a, b, h, area, x;
+        protected int n, funcType;
+
+        protected List<double> funcsResults;
 
         public double time;
 
@@ -24,8 +26,10 @@ namespace IntegralMethods
             this.b = b;
             this.n = n;
             this.funcType = funcType;
-            
-            if(a<0 || b < 0)
+
+            funcsResults = new List<double>();
+
+            if (a<0 || b < 0)
             {
                 h = ((b + 10) - (a + 10)) / n;
             }
@@ -36,11 +40,12 @@ namespace IntegralMethods
 
         }
 
+        public abstract void FillList();
         public abstract double CalcIntegral();
 
         public abstract void DrawChart(Chart chart);
 
-        public double InFunction(double x) //Підінтегральні функції
+        public double Func(double x) //Підінтегральні функції
         {
             if (funcType == 0)
             {
@@ -67,28 +72,37 @@ namespace IntegralMethods
             stopwatch.Start();
         }
 
+        protected double GetResultsListSum()
+        {
+            double sum = 0;
+            foreach (double d in funcsResults)
+            {
+                sum += d;
+            }
+            return sum;
+        }
+
     }
 
     class Pramocutnic : Integral
     {
         public Pramocutnic(double a, double b, int n, int funcType) : base(a, b, n, funcType) { }
 
+        public override void FillList()
+        {
+            for(int i = 0; i < n; i++)
+            {
+                funcsResults.Add(Func(a + h * (i + 0.5)));
+            }
+        }
 
         public override double CalcIntegral()
         {
             SetupTimer();
-
-            double result = 0;
-
-            for(int i = 0; i < n; i++)
-            {
-                result += InFunction(a + h * (i + 0.5));
-            }
-            result *= h;
-
+            FillList();
+            area = GetResultsListSum()*h;
             time = stopwatch.Elapsed.TotalMilliseconds;
-
-            return result;
+            return area;
         }
 
         public override void DrawChart(Chart chart)
@@ -99,7 +113,7 @@ namespace IntegralMethods
 
             for (int i = 0; i < n; i++)
             {
-                tempY = InFunction(a + h * (i + 0.5));
+                tempY = Func(a + h * (i + 0.5));
                 chart.Series[2].Points.AddXY(a + h * i, 0);
                 chart.Series[2].Points.AddXY(a + h * i, tempY);
                 chart.Series[2].Points.AddXY(a + h * i + h, tempY);
@@ -113,27 +127,31 @@ namespace IntegralMethods
 
     class Simpson : Integral
     {
-        public Simpson(double a, double b, int n, int funcType) : base(a, b, n, funcType) { }
+        public Simpson(double a, double b, int n, int funcType) : base(a, b, n, funcType) {}
+
+        public override void FillList()
+        {
+            x = a + h;
+
+            while (x < b) {
+                funcsResults.Add(4 * Func(x));
+                x += h;
+                funcsResults.Add(2 * Func(x));
+                x += h;
+            }
+
+            funcsResults.Add(Func(a));
+            funcsResults.Add(-Func(b));
+
+        }
 
         public override double CalcIntegral()
         {
             SetupTimer();
-
-           double s = 0;
-            double x = a + h;
-
-            while (x < b)
-            {
-                s += 4 * InFunction(x);
-                x += h;
-                s += 2 * InFunction(x);
-                x += h;
-            }
-            s = h / 3 * (s + InFunction(a) - InFunction(b));
-
+            FillList();
+            area = h / 3 * GetResultsListSum();
             time = stopwatch.Elapsed.TotalMilliseconds;
-
-            return s;
+            return area;
         }
 
         public override void DrawChart(Chart chart)
@@ -143,41 +161,42 @@ namespace IntegralMethods
             chart.Series[0].Points.Clear();
             while ((int)x != b)
             {
-                chart.Series[0].Points.AddXY(x, InFunction(x));
+                chart.Series[0].Points.AddXY(x, Func(x));
                 chart.Series[0].Points.AddXY(x, 0);
-                chart.Series[0].Points.AddXY(x, InFunction(x));
+                chart.Series[0].Points.AddXY(x, Func(x));
 
                 x += h;
             }
-            chart.Series[0].Points.AddXY(b, InFunction(x));
+            chart.Series[0].Points.AddXY(b, Func(x));
             chart.Series[0].Points.AddXY(b, 0);
-            chart.Series[0].Points.AddXY(b, InFunction(x));
+            chart.Series[0].Points.AddXY(b, Func(x));
         }
     }
 
     class Trapetsia: Integral
     {
         public Trapetsia(double a, double b, int n, int funcType) : base(a, b, n, funcType) { }
-        
 
+        public override void FillList()
+        {
+            for (int i = 1; i < n; i++)
+            {
+                x = a + h * i;
+                funcsResults.Add(2 * Func(x));
+            }
+
+            funcsResults.Add(Func(a));
+            funcsResults.Add(Func(b));
+        }
         public override double CalcIntegral()
         {
             SetupTimer();
-
-            double s = 0;
-            double x=0;
-
-            for(int i = 1; i < n; i++)
-            {
-                x = a + h * i;
-                s+= 2 * InFunction(x);
-
-            }
-            s = h / 2 * (s+InFunction(a) + InFunction(b));
+            FillList();
+            area = h / 2 * GetResultsListSum();
 
             time = stopwatch.Elapsed.TotalMilliseconds;
 
-            return s;
+            return area;
         }
 
         public override void DrawChart(Chart chart)
@@ -187,15 +206,15 @@ namespace IntegralMethods
             chart.Series[0].Points.Clear();
             while ((int)x != b)
             {
-                chart.Series[0].Points.AddXY(x, InFunction(x));
+                chart.Series[0].Points.AddXY(x, Func(x));
                 chart.Series[0].Points.AddXY(x, 0);
-                chart.Series[0].Points.AddXY(x, InFunction(x));
+                chart.Series[0].Points.AddXY(x, Func(x));
 
                 x += h;
             }
-            chart.Series[0].Points.AddXY(b, InFunction(x));
+            chart.Series[0].Points.AddXY(b, Func(x));
             chart.Series[0].Points.AddXY(b, 0);
-            chart.Series[0].Points.AddXY(b, InFunction(x));
+            chart.Series[0].Points.AddXY(b, Func(x));
         }
     }
 }

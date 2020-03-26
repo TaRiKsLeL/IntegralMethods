@@ -71,7 +71,7 @@ namespace IntegralMethods
             chart1.Series[1].Points.Clear();
             while ((int)x != b)
             {
-                chart1.Series[1].Points.AddXY(x, integral.InFunction(x));
+                chart1.Series[1].Points.AddXY(x, integral.Func(x));
                 x += h;
             }
         }
