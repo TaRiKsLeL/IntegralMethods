@@ -16,7 +16,7 @@ namespace IntegralMethods
 
         protected List<double> funcsResults;
 
-        public double time;
+        public double Time { get; protected set; }
 
         protected Stopwatch stopwatch;
 
@@ -101,7 +101,8 @@ namespace IntegralMethods
             SetupTimer();
             FillList();
             area = GetResultsListSum()*h;
-            time = stopwatch.Elapsed.TotalMilliseconds;
+            
+            Time = stopwatch.Elapsed.TotalMilliseconds;
             return area;
         }
 
@@ -150,7 +151,7 @@ namespace IntegralMethods
             SetupTimer();
             FillList();
             area = h / 3 * GetResultsListSum();
-            time = stopwatch.Elapsed.TotalMilliseconds;
+            Time = stopwatch.Elapsed.TotalMilliseconds;
             return area;
         }
 
@@ -194,7 +195,7 @@ namespace IntegralMethods
             FillList();
             area = h / 2 * GetResultsListSum();
 
-            time = stopwatch.Elapsed.TotalMilliseconds;
+            Time = stopwatch.Elapsed.TotalMilliseconds;
 
             return area;
         }

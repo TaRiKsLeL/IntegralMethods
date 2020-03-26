@@ -46,7 +46,7 @@ namespace IntegralMethods
                 }
 
             integral.DrawChart(chart1);
-            resultLabel.Text = "РЕЗУЛЬТАТ: " + integral.CalcIntegral()+"      ЧАС: "+integral.time.ToString();
+            resultLabel.Text = "РЕЗУЛЬТАТ: " + integral.CalcIntegral()+"      ЧАС: "+integral.Time.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
